@@ -2,6 +2,9 @@ package com.idjmao.datelib;
 
 /**
  * Created by 1djmao on 2017/12/20.
+ *
+ * 注意：以 周一 为一周的开始
+ *
  */
 
 public class Date {
@@ -18,10 +21,6 @@ public class Date {
     private int weekInYear;
 
 
-//    public Date(java.sql.Time time){
-//        time.getDay()
-//    }
-
     public Date(int year, int month, int dayInMonth) {
         this.year = year;
         this.month = month;
@@ -30,9 +29,8 @@ public class Date {
     }
 
     private void initDate(){
-        java.sql.Date date=new java.sql.Date(year,month,dayInMonth);
+        java.sql.Date date=new java.sql.Date(year-1900,month-1,dayInMonth);
         dayInWeek=date.getDay();
-        System.out.printf(""+date);
 
         dayInYear=0;
         for (int i = 0; i < month-1; i++) {
@@ -42,6 +40,17 @@ public class Date {
         if (Calendar.isLeapYear(year)&&month>2){
             dayInYear++;
         }
+
+        int a=dayInWeek;
+        if (a==0){
+            a=7;
+        }
+
+//        if (a<=7){
+//            weekInYear=1;
+//        }else {
+//        }
+        weekInYear=(dayInYear-a+7)/7+1;
 
 
 

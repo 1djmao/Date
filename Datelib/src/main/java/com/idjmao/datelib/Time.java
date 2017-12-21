@@ -22,17 +22,12 @@ public class Time {
     }
     private void initTime(java.util.Date date){
 
-        System.out.println(date.toString());
-
         hour=date.getHours();
         minute=date.getMinutes();
         second=date.getSeconds();
 
-        System.out.println(""+date.getDay());
-
         mDate=new Date(date.getYear()+1900,date.getMonth()+1,date.getDate());
 
-        System.out.println(formatOut());
 
     }
 
