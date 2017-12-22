@@ -1,5 +1,7 @@
 package com.idjmao.datelib;
 
+import java.text.DecimalFormat;
+
 /**
  * Created by 1djmao on 2017/12/20.
  */
@@ -35,8 +37,19 @@ public class Time {
         return new Time(System.currentTimeMillis());
     }
 
+    @Override
+    public String toString() {
+        String s="Time:{ ";
+        s=s+mDate.toString();
+        s=s+"; hour: "+hour;
+        s=s+"; minute: "+minute;
+        s=s+"; second: "+second;
+        s=s+"; timeMillis: "+timeMillis;
+        return s;
+    }
 
     public String formatOut() {
-        return mDate.formatOut()+" "+hour+":"+minute+":"+second;
+        DecimalFormat format=new DecimalFormat("00");
+        return mDate.formatOut()+" "+format.format(hour)+":"+format.format(minute)+":"+format.format(second);
     }
 }
