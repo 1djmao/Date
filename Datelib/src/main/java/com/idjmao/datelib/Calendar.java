@@ -73,19 +73,29 @@ public class Calendar {
         return dates;
     }
 
+    /**
+     * 获取某天的前一天
+     * @param date
+     * @return
+     */
     public static Date getLastDate(Date date){
-        if (date.getDayInYear()==0){
+        if (date.getMonth()==1&&date.getDayInMonth()==1){
             return new Date(date.getYear()-1,12,31);
         }else {
-            return new Date(date.getYear(),date.getDayInYear());
+            return new Date(date.getYear(),date.getDayInYear()-1);
         }
     }
 
+    /**
+     * 获取某天的后一天
+     * @param date
+     * @return
+     */
     public static Date getNextDate(Date date){
         if (date.getMonth()==12&&date.getDayInMonth()==31){
             return new Date(date.getYear()+1,1,1);
         }else {
-            return new Date(date.getYear(),date.getDayInYear());
+            return new Date(date.getYear(),date.getDayInYear()+1);
         }
     }
 

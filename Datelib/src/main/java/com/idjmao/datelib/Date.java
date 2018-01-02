@@ -91,6 +91,45 @@ public class Date {
         return year+"-"+format.format(month)+"-"+format.format(dayInMonth);
     }
 
+    /**
+     * 根据自定义格式输出字符串，如 "yyyy-mm-dd 周w"输出 "2017-01-02 周一"
+     * y 表示 年，数量表示最低位数
+     * m 表示 月，数量表示最低位数
+     * d 表示 日，数量表示最低位数
+     * w 表示 星期，第一位有效
+     * @param format
+     * @return
+     */
+    public String formatOut(String format){
+        // TODO: 2018/1/2 格式化输出
+        return "";
+    }
+    public static Date formatFrome(String date,String format){
+        // TODO: 2018/1/2 格式化的字符串构造
+        return null;
+    }
+
+    private String getWeekNum(int i){
+        switch (i){
+            case 1:
+                return "一";
+            case 2:
+                return "二";
+            case 3:
+                return "三";
+            case 4:
+                return "四";
+            case 5:
+                return "五";
+            case 6:
+                return "六";
+            case 7:
+                return "日";
+        }
+        return "";
+    }
+
+
     public int getYear() {
         return year;
     }

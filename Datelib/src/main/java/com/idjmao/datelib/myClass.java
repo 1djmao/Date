@@ -17,7 +17,8 @@ public class myClass {
 //            System.out.println(d.formatOut());
 //        }
 
-        Date date1=new Date(2014,5,5);
+        Date date=new Date(2014,1,1);
+        Date date1=Calendar.getLastDate(date);
         Time time=Time.getNowTime();
         System.out.println(date1.toString());
         System.out.println(date1.formatOut());

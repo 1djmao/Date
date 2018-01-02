@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Date.iml" filepath="$PROJECT_DIR$/Date.iml" />
       <module fileurl="file://$PROJECT_DIR$/Datelib/Datelib.iml" filepath="$PROJECT_DIR$/Datelib/Datelib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myapplication/myapplication.iml" filepath="$PROJECT_DIR$/myapplication/myapplication.iml" />
     </modules>
   </component>
 </project>
