@@ -69,8 +69,19 @@ public class Date {
         }
         dayInYear=dayInYear+dayInMonth;
 
-        weekInYear=(dayInYear-dayInWeek+7)/7+1;
-        weekInMonth=(dayInMonth-dayInWeek+7)/7+1;
+        date=new java.sql.Date(year-1900,1,1);
+        int firstDayInWeek=date.getDay();
+        if (firstDayInWeek==0){
+            firstDayInWeek=7;
+        }
+        weekInYear=(dayInYear+firstDayInWeek-1)/7+1;
+
+        date=new java.sql.Date(year-1900,month-1,1);
+        firstDayInWeek=date.getDay();
+        if (firstDayInWeek==0){
+            firstDayInWeek=7;
+        }
+        weekInMonth=(dayInMonth+firstDayInWeek-1)/7+1;
     }
 
     @Override

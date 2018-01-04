@@ -17,13 +17,16 @@ public class myClass {
 //            System.out.println(d.formatOut());
 //        }
 
-        Date date=new Date(2014,1,1);
-        Date date1=Calendar.getLastDate(date);
-        Time time=Time.getNowTime();
-        System.out.println(date1.toString());
-        System.out.println(date1.formatOut());
-        System.out.println(time.toString());
-        System.out.println(time.formatOut());
+        Date date=new Date(2017,1,1);
+        System.out.println(date.toString());
+
+//        Date date1=Calendar.getLastDate(date);
+//        Time time=Time.getNowTime();
+//        System.out.println(date1.toString());
+//        System.out.println(date1.formatOut());
+//        System.out.println(time.toString());
+//        System.out.println(time.formatOut());
+
 
 
     }

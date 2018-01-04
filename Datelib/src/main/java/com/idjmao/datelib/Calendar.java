@@ -152,12 +152,47 @@ public class Calendar {
             return dayCoutntByMonth[month-1];
         }
     }
+
+    /**
+     * 获取每年的天数
+     * @param year
+     * @return
+     */
     static int getDayCountByYear(int year){
         if (isLeapYear(year)){
             return 366;
         }else {
             return 365;
         }
+    }
+
+    /**
+     * 获取从1900.1.1开始的日期
+     * @return
+     */
+    static int getDayNum(int year,int month,int dayInMonth){
+        int dayNum=0;
+        //年
+        if (year<2000){
+            dayNum+=(year-1900)/4*1460-1;
+            for (int i = year-(year-1900)%4; i < year; i++) {
+                dayNum+=getDayCountByYear(i);
+            }
+
+        }else if (year>2000){
+
+        }else {
+
+        }
+        //月
+        for (int i = 1; i < month; i++) {
+            dayNum+=getDayCountByMonth(year,i);
+        }
+        //日
+        dayNum+=dayInMonth;
+
+        return dayNum;
+
     }
 
 
