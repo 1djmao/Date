@@ -3,6 +3,7 @@ package com.idjmao.datelib;
 import java.text.DecimalFormat;
 
 import static com.idjmao.datelib.Calendar.getDayCountByMonth;
+import static com.idjmao.datelib.Calendar.getDayInWeekByDay;
 
 /**
  * Created by 1djmao on 2017/12/20.
@@ -57,11 +58,7 @@ public class Date {
     }
 
     private void initDate(){
-        java.sql.Date date=new java.sql.Date(year-1900,month-1,dayInMonth);
-        dayInWeek=date.getDay();
-        if (dayInWeek==0){
-            dayInWeek=7;
-        }
+        dayInWeek=getDayInWeekByDay(year,month,dayInMonth);
 
         dayInYear=0;
         for (int i = 1; i < month; i++) {
@@ -69,19 +66,11 @@ public class Date {
         }
         dayInYear=dayInYear+dayInMonth;
 
-        date=new java.sql.Date(year-1900,1,1);
-        int firstDayInWeek=date.getDay();
-        if (firstDayInWeek==0){
-            firstDayInWeek=7;
-        }
-        weekInYear=(dayInYear+firstDayInWeek-1)/7+1;
+        int firstDay=getDayInWeekByDay(year,1,1);
+        weekInYear=(dayInYear+firstDay-2)/7+1;
 
-        date=new java.sql.Date(year-1900,month-1,1);
-        firstDayInWeek=date.getDay();
-        if (firstDayInWeek==0){
-            firstDayInWeek=7;
-        }
-        weekInMonth=(dayInMonth+firstDayInWeek-1)/7+1;
+        firstDay=getDayInWeekByDay(year,month,1);
+        weekInMonth=(dayInMonth+firstDay-2)/7+1;
     }
 
     @Override

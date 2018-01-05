@@ -17,7 +17,7 @@ public class myClass {
 //            System.out.println(d.formatOut());
 //        }
 
-        Date date=new Date(2017,1,1);
+        Date date=new Date(2018,1,8);
         System.out.println(date.toString());
 
 //        Date date1=Calendar.getLastDate(date);

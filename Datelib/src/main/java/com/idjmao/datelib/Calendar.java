@@ -173,16 +173,12 @@ public class Calendar {
     static int getDayNum(int year,int month,int dayInMonth){
         int dayNum=0;
         //年
-        if (year<2000){
-            dayNum+=(year-1900)/4*1460-1;
-            for (int i = year-(year-1900)%4; i < year; i++) {
-                dayNum+=getDayCountByYear(i);
-            }
-
-        }else if (year>2000){
-
-        }else {
-
+        dayNum+=(year-1900)/4*1461;
+        for (int i = year-(year-1900)%4; i < year; i++) {
+            dayNum+=getDayCountByYear(i);
+        }
+        if (year>1903){
+            dayNum--;
         }
         //月
         for (int i = 1; i < month; i++) {
@@ -190,10 +186,25 @@ public class Calendar {
         }
         //日
         dayNum+=dayInMonth;
-
         return dayNum;
 
     }
+
+    /**
+     * 根据年月日获取周几
+     * @param year
+     * @param month
+     * @param dayInMonth
+     * @return
+     */
+    static int getDayInWeekByDay(int year,int month,int dayInMonth){
+        int dayInWeek=getDayNum(year,month,dayInMonth)%7;
+        if (dayInWeek==0){
+            dayInWeek=7;
+        }
+        return dayInWeek;
+    }
+
 
 
 }
