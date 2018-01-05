@@ -92,19 +92,43 @@ public class Date {
     }
 
     /**
-     * 根据自定义格式输出字符串，如 "yyyy-mm-dd 周w"输出 "2017-01-02 周一"
-     * y 表示 年，数量表示最低位数
-     * m 表示 月，数量表示最低位数
-     * d 表示 日，数量表示最低位数
-     * w 表示 星期，第一位有效
+     * 根据自定义格式输出字符串，如 "y-m-d 周w"输出 "2017-01-02 周一"
+     * 除年份外，其余数字都是 2 位
+     * y 表示 年
+     * m 表示 月
+     * d 表示 日
+     * w 表示 星期
      * @param format
      * @return
      */
     public String formatOut(String format){
-        // TODO: 2018/1/2 格式化输出
-        return "";
+        String s=format;
+        if (s.contains("y")){
+            s=s.replaceFirst("y",year+"");
+            s=s.replaceAll("y","");
+        }
+        if (s.contains("m")){
+            s=s.replaceFirst("m",formatLength(month+""));
+            s=s.replaceAll("m","");
+        }
+        if (s.contains("d")){
+            s=s.replaceFirst("d",formatLength(dayInMonth+""));
+            s=s.replaceAll("d","");
+        }
+        if (s.contains("w")){
+            s=s.replaceFirst("w",getWeekNum(dayInWeek));
+            s=s.replaceAll("w","");
+        }
+        return s;
     }
-    public static Date formatFrome(String date,String format){
+    private String formatLength(String s){
+        if (s.length()<2){
+            s="0"+s;
+        }
+        return s;
+    }
+
+    public static Date formatFrom(String date,String format){
         // TODO: 2018/1/2 格式化的字符串构造
         return null;
     }

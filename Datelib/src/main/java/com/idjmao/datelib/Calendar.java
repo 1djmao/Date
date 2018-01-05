@@ -106,17 +106,8 @@ public class Calendar {
      * @return
      */
     public static int compareDate(Date date1,Date date2){
-        int n=date1.getDayInYear()-date2.getDayInYear();
-
-        if (date1.getYear()>date2.getYear()){
-            for (int i = date2.getYear(); i < date1.getYear(); i++) {
-                n=n+Calendar.getDayCountByYear(i);
-            }
-        }else {
-            for (int i = date1.getYear(); i < date2.getYear(); i++) {
-                n=n-Calendar.getDayCountByYear(i);
-            }
-        }
+        int n=getDayNum(date1.getYear(),date1.getMonth(),date1.getDayInMonth())
+                -getDayNum(date2.getYear(),date2.getMonth(),date2.getDayInMonth());
 
         return n;
     }
@@ -144,7 +135,7 @@ public class Calendar {
      * @param month
      * @return
      */
-    static int getDayCountByMonth(int year,int month){
+    public static int getDayCountByMonth(int year,int month){
         final int[] dayCoutntByMonth=new int[]{31,28,31,30,31,30,31,31,30,31,30,31};
         if (Calendar.isLeapYear(year)&&month==2){
             return 29;
@@ -158,7 +149,7 @@ public class Calendar {
      * @param year
      * @return
      */
-    static int getDayCountByYear(int year){
+    public static int getDayCountByYear(int year){
         if (isLeapYear(year)){
             return 366;
         }else {
@@ -197,7 +188,7 @@ public class Calendar {
      * @param dayInMonth
      * @return
      */
-    static int getDayInWeekByDay(int year,int month,int dayInMonth){
+    public static int getDayInWeekByDay(int year,int month,int dayInMonth){
         int dayInWeek=getDayNum(year,month,dayInMonth)%7;
         if (dayInWeek==0){
             dayInWeek=7;
