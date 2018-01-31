@@ -52,4 +52,11 @@ public class Time {
         DecimalFormat format=new DecimalFormat("00");
         return mDate.formatOut()+" "+format.format(hour)+":"+format.format(minute)+":"+format.format(second);
     }
+
+    public String formatOut(String s){
+
+
+
+        return null;
+    }
 }

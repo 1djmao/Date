@@ -18,7 +18,14 @@ public class myClass {
 //        }
 
         Date date=new Date(2018,1,30);
-        System.out.println(date.formatOut("y**d_m+++w"));
+        System.out.println(date.formatOut("yyyyyyyy**ddddgg_m+++w"));
+
+        System.out.println(Calendar.getNextDate(date).formatOut());
+
+
+        for (int i = 0; i < 100; i++) {
+            System.out.println(new Date(2018,i));
+        }
 
 //        Date date1=Calendar.getLastDate(date);
 //        Time time=Time.getNowTime();

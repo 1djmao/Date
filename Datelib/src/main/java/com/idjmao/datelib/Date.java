@@ -1,7 +1,5 @@
 package com.idjmao.datelib;
 
-import java.text.DecimalFormat;
-
 import static com.idjmao.datelib.Calendar.getDayCountByMonth;
 import static com.idjmao.datelib.Calendar.getDayInWeekByDay;
 
@@ -40,7 +38,7 @@ public class Date {
 
         int n=dayInYear;
         for (int i = 1; i < 12; i++) {
-            if (n<getDayCountByMonth(year,i)){
+            if (n<=getDayCountByMonth(year,i)){
                 break;
             }
             n=n-getDayCountByMonth(year,i);
@@ -87,8 +85,7 @@ public class Date {
     }
 
     public String formatOut(){
-        DecimalFormat format=new DecimalFormat("00");
-        return year+"-"+format.format(month)+"-"+format.format(dayInMonth);
+        return formatOut("y-m-d");
     }
 
     /**
