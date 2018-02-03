@@ -16,6 +16,9 @@ public class Time {
 
 
     public Time(long timeMillis) {
+
+        int dayNum= (int) (timeMillis/86400000);
+
         this.timeMillis = timeMillis;
 
         java.util.Date date=new java.util.Date(timeMillis);
@@ -52,10 +55,20 @@ public class Time {
         DecimalFormat format=new DecimalFormat("00");
         return mDate.formatOut()+" "+format.format(hour)+":"+format.format(minute)+":"+format.format(second);
     }
-
-    public String formatOut(String s){
-
-
+    /**
+     * 根据自定义格式输出字符串，如 "y-m-d 周w"输出 "2017-01-02 周一"
+     * 日期是小写，时间是大写
+     * y 表示 年
+     * m 表示 月
+     * d 表示 日
+     * w 表示 星期
+     * H 表示 时
+     * M 表示分
+     * S 表示秒
+     * @param format
+     * @return
+     */
+    public String formatOut(String format){
 
         return null;
     }

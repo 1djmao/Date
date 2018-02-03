@@ -20,12 +20,13 @@ public class myClass {
         Date date=new Date(2018,1,30);
         System.out.println(date.formatOut("yyyyyyyy**ddddgg_m+++w"));
 
-        System.out.println(Calendar.getNextDate(date).formatOut());
+        Date date1=Date.formatFrom(date.formatOut("yyyyyyyy**ddddgg_m+++w"),"yyyyyyyy**ddddgg_m+++w");
+        System.out.println(date1.formatOut());
 
 
-        for (int i = 0; i < 100; i++) {
-            System.out.println(new Date(2018,i));
-        }
+//        for (int i = 0; i < 100; i++) {
+//            System.out.println(new Date(2018,i));
+//        }
 
 //        Date date1=Calendar.getLastDate(date);
 //        Time time=Time.getNowTime();
@@ -33,8 +34,6 @@ public class myClass {
 //        System.out.println(date1.formatOut());
 //        System.out.println(time.toString());
 //        System.out.println(time.formatOut());
-
-
 
 
     }

@@ -51,6 +51,11 @@ public class Date {
         initDate();
     }
 
+    // TODO: 2018/2/2 根据从1900.1.1开始的日期创建对象
+    public Date(int dayNum){
+
+    }
+
     public static Date getToday(){
         return Time.getNowTime().mDate;
     }
@@ -90,7 +95,7 @@ public class Date {
 
     /**
      * 根据自定义格式输出字符串，如 "y-m-d 周w"输出 "2017-01-02 周一"
-     * 除年份外，其余数字都是 2 位
+     * 都是小写
      * y 表示 年
      * m 表示 月
      * d 表示 日
@@ -125,9 +130,47 @@ public class Date {
         return s;
     }
 
+    /**
+     * 根据字符串生成 Date 对象
+     * 必须包含年月日三个参数
+     * @param date
+     * @param format
+     * @return
+     */
     public static Date formatFrom(String date,String format){
-        // TODO: 2018/1/2 格式化的字符串构造
-        return null;
+        if (!format.contains("y")){
+            return null;
+        }
+        if (!format.contains("m")){
+            return null;
+        }
+        if (!format.contains("d")){
+            return null;
+        }
+
+        format=format.replaceAll("Y","");
+        format=format.replaceAll("M","");
+        format=format.replaceAll("D","");
+        format=format.replaceFirst("y","YYYY");
+        format=format.replaceFirst("m","MM");
+        format=format.replaceFirst("d","DD");
+        format=format.replaceAll("y","");
+        format=format.replaceAll("m","");
+        format=format.replaceAll("d","");
+
+        int y=format.indexOf("Y");
+        int m=format.indexOf("M");
+        int d=format.indexOf("D");
+
+        if (y==-1||m==-1||d==-1){
+            return null;
+        }
+
+        int year=Integer.valueOf(date.substring(y,y+4));
+        int month=Integer.valueOf(date.substring(m,m+2));
+        int day=Integer.valueOf(date.substring(d,d+2));
+
+        return new Date(year,month,day);
     }
 
     private String getWeekNum(int i){
