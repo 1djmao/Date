@@ -5,7 +5,22 @@
 2. 一周从周一开始，即周一为 1，周日为 7
 
 ## 导入
-[下载jar包](https://github.com/1djmao/Date/raw/master/lib/Datelib.jar)
+Step 1. Add the JitPack repository to your build file
+Add it in your root build.gradle at the end of repositories:
+
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+Step 2. Add the dependency
+
+	dependencies {
+	        implementation 'com.github.1djmao:Date:v1.0'
+	}
+
+
 
 ## 接口
 
